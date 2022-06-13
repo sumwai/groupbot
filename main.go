@@ -14,6 +14,7 @@ import (
 )
 
 const AdminId = 2811187643
+const GroupIni = "/etc/groupbot/groups.ini"
 
 var groupList group.GroupList
 var groupLink map[int]string
@@ -126,7 +127,7 @@ func getGroupList() GroupList {
 	log.Printf("load %d groups\n", len(groupList))
 	log.Print("load group links ....")
 	// 1.2 加载群链接列表
-	groupLink = loadLinks("groups.ini")
+	groupLink = loadLinks(GroupIni)
 	log.Printf("load %d links\n", len(groupLink))
 	// 2. 获取群信息
 	groups := GroupList{}
